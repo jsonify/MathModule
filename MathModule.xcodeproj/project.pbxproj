@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		79B3D1B3257839C400CD4F0D /* MathModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1B2257839C400CD4F0D /* MathModuleApp.swift */; };
-		79B3D1B5257839C400CD4F0D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1B4257839C400CD4F0D /* ContentView.swift */; };
 		79B3D1B7257839C600CD4F0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B3D1B6257839C600CD4F0D /* Assets.xcassets */; };
 		79B3D1BA257839C600CD4F0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B3D1B9257839C600CD4F0D /* Preview Assets.xcassets */; };
 		79B3D1C5257839C600CD4F0D /* MathModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1C4257839C600CD4F0D /* MathModuleTests.swift */; };
 		79B3D1D0257839C600CD4F0D /* MathModuleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1CF257839C600CD4F0D /* MathModuleUITests.swift */; };
+		79B3D1E425783BFD00CD4F0D /* MathSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1E325783BFD00CD4F0D /* MathSwiftUIView.swift */; };
+		79B3D1F3257840DB00CD4F0D /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1F2257840DB00CD4F0D /* OperationView.swift */; };
+		79B3D1FE2578499900CD4F0D /* MultiplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1FA2578499800CD4F0D /* MultiplicationView.swift */; };
+		79B3D1FF2578499900CD4F0D /* DivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1FB2578499900CD4F0D /* DivisionView.swift */; };
+		79B3D2002578499900CD4F0D /* AdditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1FC2578499900CD4F0D /* AdditionView.swift */; };
+		79B3D2012578499900CD4F0D /* SubtractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1FD2578499900CD4F0D /* SubtractionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +40,6 @@
 /* Begin PBXFileReference section */
 		79B3D1AF257839C400CD4F0D /* MathModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B3D1B2257839C400CD4F0D /* MathModuleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathModuleApp.swift; sourceTree = "<group>"; };
-		79B3D1B4257839C400CD4F0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		79B3D1B6257839C600CD4F0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B3D1B9257839C600CD4F0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		79B3D1BB257839C600CD4F0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,12 @@
 		79B3D1CB257839C600CD4F0D /* MathModuleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathModuleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B3D1CF257839C600CD4F0D /* MathModuleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathModuleUITests.swift; sourceTree = "<group>"; };
 		79B3D1D1257839C600CD4F0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79B3D1E325783BFD00CD4F0D /* MathSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSwiftUIView.swift; sourceTree = "<group>"; };
+		79B3D1F2257840DB00CD4F0D /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
+		79B3D1FA2578499800CD4F0D /* MultiplicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplicationView.swift; sourceTree = "<group>"; };
+		79B3D1FB2578499900CD4F0D /* DivisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivisionView.swift; sourceTree = "<group>"; };
+		79B3D1FC2578499900CD4F0D /* AdditionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionView.swift; sourceTree = "<group>"; };
+		79B3D1FD2578499900CD4F0D /* SubtractionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtractionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +105,12 @@
 		79B3D1B1257839C400CD4F0D /* MathModule */ = {
 			isa = PBXGroup;
 			children = (
-				79B3D1B2257839C400CD4F0D /* MathModuleApp.swift */,
-				79B3D1B4257839C400CD4F0D /* ContentView.swift */,
+				79B3D1F125783CBD00CD4F0D /* Models */,
+				79B3D1EB25783C8F00CD4F0D /* Views */,
+				79B3D1F025783CAE00CD4F0D /* View Models */,
 				79B3D1B6257839C600CD4F0D /* Assets.xcassets */,
 				79B3D1BB257839C600CD4F0D /* Info.plist */,
+				79B3D1B2257839C400CD4F0D /* MathModuleApp.swift */,
 				79B3D1B8257839C600CD4F0D /* Preview Content */,
 			);
 			path = MathModule;
@@ -128,6 +140,33 @@
 				79B3D1D1257839C600CD4F0D /* Info.plist */,
 			);
 			path = MathModuleUITests;
+			sourceTree = "<group>";
+		};
+		79B3D1EB25783C8F00CD4F0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79B3D1E325783BFD00CD4F0D /* MathSwiftUIView.swift */,
+				79B3D1FC2578499900CD4F0D /* AdditionView.swift */,
+				79B3D1FB2578499900CD4F0D /* DivisionView.swift */,
+				79B3D1FA2578499800CD4F0D /* MultiplicationView.swift */,
+				79B3D1FD2578499900CD4F0D /* SubtractionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		79B3D1F025783CAE00CD4F0D /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		79B3D1F125783CBD00CD4F0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				79B3D1F2257840DB00CD4F0D /* OperationView.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B3D1B5257839C400CD4F0D /* ContentView.swift in Sources */,
+				79B3D1FE2578499900CD4F0D /* MultiplicationView.swift in Sources */,
+				79B3D1F3257840DB00CD4F0D /* OperationView.swift in Sources */,
+				79B3D2002578499900CD4F0D /* AdditionView.swift in Sources */,
 				79B3D1B3257839C400CD4F0D /* MathModuleApp.swift in Sources */,
+				79B3D1E425783BFD00CD4F0D /* MathSwiftUIView.swift in Sources */,
+				79B3D2012578499900CD4F0D /* SubtractionView.swift in Sources */,
+				79B3D1FF2578499900CD4F0D /* DivisionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
