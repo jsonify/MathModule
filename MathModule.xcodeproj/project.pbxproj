@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79147262257A022C0009A130 /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79147261257A022C0009A130 /* NumberViewModel.swift */; };
+		79147268257A03020009A130 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79147267257A03020009A130 /* TextField+Extensions.swift */; };
+		7976C01F2578562200A369D8 /* OperationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976C01E2578562200A369D8 /* OperationsViewModel.swift */; };
+		7976C0242578CAAA00A369D8 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976C0232578CAAA00A369D8 /* GaugeView.swift */; };
 		79B3D1B3257839C400CD4F0D /* MathModuleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3D1B2257839C400CD4F0D /* MathModuleApp.swift */; };
 		79B3D1B7257839C600CD4F0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B3D1B6257839C600CD4F0D /* Assets.xcassets */; };
 		79B3D1BA257839C600CD4F0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B3D1B9257839C600CD4F0D /* Preview Assets.xcassets */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79147261257A022C0009A130 /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
+		79147267257A03020009A130 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
+		7976C01E2578562200A369D8 /* OperationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewModel.swift; sourceTree = "<group>"; };
+		7976C0232578CAAA00A369D8 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		79B3D1AF257839C400CD4F0D /* MathModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B3D1B2257839C400CD4F0D /* MathModuleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathModuleApp.swift; sourceTree = "<group>"; };
 		79B3D1B6257839C600CD4F0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79147266257A02CC0009A130 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				79147267257A03020009A130 /* TextField+Extensions.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		79B3D1A6257839C400CD4F0D = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +121,7 @@
 		79B3D1B1257839C400CD4F0D /* MathModule */ = {
 			isa = PBXGroup;
 			children = (
+				79147266257A02CC0009A130 /* Extentions */,
 				79B3D1F125783CBD00CD4F0D /* Models */,
 				79B3D1EB25783C8F00CD4F0D /* Views */,
 				79B3D1F025783CAE00CD4F0D /* View Models */,
@@ -145,11 +162,13 @@
 		79B3D1EB25783C8F00CD4F0D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				79B3D1F2257840DB00CD4F0D /* OperationView.swift */,
 				79B3D1E325783BFD00CD4F0D /* MathSwiftUIView.swift */,
 				79B3D1FC2578499900CD4F0D /* AdditionView.swift */,
+				79B3D1FD2578499900CD4F0D /* SubtractionView.swift */,
 				79B3D1FB2578499900CD4F0D /* DivisionView.swift */,
 				79B3D1FA2578499800CD4F0D /* MultiplicationView.swift */,
-				79B3D1FD2578499900CD4F0D /* SubtractionView.swift */,
+				7976C0232578CAAA00A369D8 /* GaugeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +176,7 @@
 		79B3D1F025783CAE00CD4F0D /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				79147261257A022C0009A130 /* NumberViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -164,7 +184,7 @@
 		79B3D1F125783CBD00CD4F0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				79B3D1F2257840DB00CD4F0D /* OperationView.swift */,
+				7976C01E2578562200A369D8 /* OperationsViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,9 +322,13 @@
 				79B3D1F3257840DB00CD4F0D /* OperationView.swift in Sources */,
 				79B3D2002578499900CD4F0D /* AdditionView.swift in Sources */,
 				79B3D1B3257839C400CD4F0D /* MathModuleApp.swift in Sources */,
+				7976C01F2578562200A369D8 /* OperationsViewModel.swift in Sources */,
 				79B3D1E425783BFD00CD4F0D /* MathSwiftUIView.swift in Sources */,
 				79B3D2012578499900CD4F0D /* SubtractionView.swift in Sources */,
+				7976C0242578CAAA00A369D8 /* GaugeView.swift in Sources */,
 				79B3D1FF2578499900CD4F0D /* DivisionView.swift in Sources */,
+				79147268257A03020009A130 /* TextField+Extensions.swift in Sources */,
+				79147262257A022C0009A130 /* NumberViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

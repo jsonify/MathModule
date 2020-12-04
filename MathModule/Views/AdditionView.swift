@@ -9,7 +9,61 @@
 import SwiftUI
 
 struct AdditionView: View {
-    @State private var answerText = ""
+    @StateObject var numberModelVM = NumberViewModel()
+    @State private var score = 0
+    @State private var reset = true
+    @State private var progressValue: Float = 0.0
+    
+    @AppStorage("additionLevel") var additionLevel: Int = 1
+    
+    fileprivate func checkAnswer() {
+        if numberModelVM.correctAdditionAnswer == Int(numberModelVM.userAnswer) {
+            score += 1
+            
+            withAnimation(Animation.default.speed(0.55)){
+                if progressValue < 0.91 {
+                    progressValue += 0.1
+                } else {
+                    resetProgressBar()
+                }
+            }
+            
+            if score == 10 {
+                additionLevel += 1
+                numberModelVM.additionLevel += 1
+                print("numberModelVM: \(numberModelVM.additionLevel)\nlevel: \(additionLevel)")
+            } else if score == 20 {
+                additionLevel += 1
+                numberModelVM.additionLevel += 1
+                print("numberModelVM: \(numberModelVM.additionLevel)\nlevel: \(additionLevel)")
+            } else if score == 30 {
+                additionLevel += 1
+                numberModelVM.additionLevel += 1
+                print("numberModelVM: \(numberModelVM.additionLevel)\nlevel: \(additionLevel)")
+            } else if score == 40 {
+                additionLevel += 1
+                numberModelVM.additionLevel += 1
+                print("numberModelVM: \(numberModelVM.additionLevel)\nlevel: \(additionLevel)")
+            } else if score == 50 {
+                additionLevel += 1
+                numberModelVM.additionLevel += 1
+                print("numberModelVM: \(numberModelVM.additionLevel)\nlevel: \(additionLevel)")
+            }
+            
+            numberModelVM.newAdditionEquation()
+            numberModelVM.userAnswer = ""
+            reset = true
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                numberModelVM.userAnswer = ""
+                self.reset = true
+            }
+        }
+    }
+    
+    func resetProgressBar() {
+        self.progressValue = 0.1
+    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -22,8 +76,8 @@ struct AdditionView: View {
                             .foregroundColor(.green)
                         
                         VStack {
-                            Text("12")
-                            Text("8")
+                            Text("\(numberModelVM.topNumberAdd)")
+                            Text("\(numberModelVM.bottomNumberAdd)")
                         }
                         .font(.system(size: 60, weight: .black))
                         .foregroundColor(.white)
@@ -35,44 +89,107 @@ struct AdditionView: View {
                         .background(Color.gray)
                 }
                 
-                VStack {
-                    ZStack {
-                        if answerText.isEmpty {
-                            Text("???")
+                HStack {
+                    Spacer()
+                    VStack {
+                        ZStack {
+                            if numberModelVM.userAnswer.isEmpty {
+                                Text("???")
+                                    .font(.system(size: 60, weight: .black))
+                            }
+                            
+                            TextField("", text: $numberModelVM.userAnswer)
+                                .keyboardType(.numberPad)
+                                .frame(width: 200, height: 70)
+                                .font(.system(size: 60, weight: .black))
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .padding([.leading, .trailing], 4)
+                                .cornerRadius(16)
+                                .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+//                                .padding(.horizontal, 50)
+//                                .padding(.trailing, 30)
+                                .multilineTextAlignment(TextAlignment.trailing)
                         }
-                        
-                        TextField("", text: $answerText)
-                            .padding(.horizontal, 100)
+                        .foregroundColor(.white)
                     }
-                    .foregroundColor(.white)
+                    .font(.title)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        reset = false
+                        checkAnswer()
+                        UIApplication.shared.endEditing()
+                        
+                    }) {
+                        Image(systemName: "checkmark.seal.fill")
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Circle().fill(Color.green))
+                    }
                 }
-                .font(.title)
+                
+                
+                
+                Text("Score: \(score)")
+                    .font(.system(size: 60, weight: .black))
+                    .foregroundColor(reset ? .white : .red)
             }
             .padding(30)
             .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
-            .offset(y: 250)
+            .offset(y: 160)
             .background(Color(.darkGray))
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             
+            
             ZStack {
-                HStack {
-                    Image(systemName: "plus.square.fill")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .padding(.horizontal)
+                VStack {
+                    HStack {
+                        VStack {
+                            Image(systemName: "plus.square.fill")
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .padding(.horizontal)
+                            
+                            HStack(spacing: 5.0) {
+                                Text("Level")
+                                    .font(.subheadline)
+                                    .fontWeight(.black)
+                                
+                                Text("\(additionLevel)")
+                                    .font(.title3)
+                                    .fontWeight(.black)
+                                    .onAppear {
+                                        numberModelVM.additionLevel = additionLevel
+                                    }
+                            }
+                        }
+                        .padding(.top, 30)
+                        
+                        VStack(spacing: 10.0) {
+                            Text("Addition")
+                                .font(.system(size: 24, weight: .black))
+                                .frame(width: 200, alignment: .leading)
+                            ProgressBar(value: $progressValue, progressColor: Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)))
+                                .frame(height: 20)
+                            //                            ProgressView("Downloading", value: progressValue, total: 1)
+                        }
+                    }
+                    .foregroundColor(.white)
+                    .padding(44)
+                    .frame(maxWidth: .infinity, maxHeight: 150)
+                    .background(Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)))
+                    .shadow(color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
                     
-                    Text("Addition")
-                        .font(.system(size: 24, weight: .black))
-                        .frame(width: 200, alignment: .leading)
                 }
-                .foregroundColor(.white)
-                .padding(44)
-                .frame(maxWidth: .infinity, maxHeight: 200)
-                .background(Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)))
-                .shadow(color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
+                
             }
         }
         .ignoresSafeArea(.all)
+        .onAppear {
+            print("numberModelVM: \(numberModelVM.additionLevel)\nlevel: \(additionLevel)")
+        }
     }
 }
 
@@ -81,3 +198,4 @@ struct AdditionView_Previews: PreviewProvider {
         AdditionView()
     }
 }
+
