@@ -106,8 +106,6 @@ struct AdditionView: View {
                                 .padding([.leading, .trailing], 4)
                                 .cornerRadius(16)
                                 .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
-                                //                                .padding(.horizontal, 50)
-                                //                                .padding(.trailing, 30)
                                 .multilineTextAlignment(TextAlignment.trailing)
                         }
                         .foregroundColor(.white)
@@ -134,7 +132,7 @@ struct AdditionView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
             .offset(y: 170)
             .background(Color(.darkGray))
-            
+
             
             ZStack {
                 VStack {
@@ -142,7 +140,6 @@ struct AdditionView: View {
                         VStack(alignment: .center, spacing: 5.0) {
                             Text("Addition")
                                 .font(.system(size: 24, weight: .black))
-//                                .frame(width: 200, alignment: .leading)
                             ProgressBar(value: $progressValue, progressColor: Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)))
                                 .frame(height: 20)
                             
@@ -172,7 +169,7 @@ struct AdditionView: View {
                     .padding(.horizontal, 20)
                     .frame(maxWidth: .infinity, maxHeight: 180)
                     .background(Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)))
-//                    .shadow(color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
+                    .shadow(color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
                     
                 }
                 
@@ -187,8 +184,7 @@ struct AdditionView: View {
 
 struct AdditionView_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionView().previewDevice("iPhone 7")
-        AdditionView().previewDevice("iPhone 11 Pro")
+        AdditionView()
     }
 }
 

@@ -26,9 +26,9 @@ struct MathSwiftUIView: View {
     @State private var selectedTarget: OperatorType? = nil
     @State private var showProfile = false
     
-    @AppStorage("additionLevel") private var additionLevel: Int = 0
-    @AppStorage("subtractionLevel") private var subtractionLevel: Int = 0
-//    @Binding var level: Int
+    @AppStorage("additionLevel") private var additionLevel: Int = 1
+    @AppStorage("subtractionLevel") private var subtractionLevel: Int = 1
+    //    @Binding var level: Int
     
     var body: some View {
         NavigationView {
@@ -76,26 +76,25 @@ struct MathSwiftUIView: View {
                     
                     VStack(spacing: 50.0) {
                         NavigationLink(destination: AdditionView()) {
-                            VStack {
-                                OperationView(section: OperationTopicView(topic: "Addition", equation: "2 + 4 = 6", level: additionLevel, image: Image(systemName: "plus.square.fill"), color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1))))
-                                
-                                OperationView(section: OperationTopicView(topic: "Subtraction", equation: "9 - 5 = 4", level: subtractionLevel, image: Image(systemName: "minus.square.fill"), color: Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))))
-                            }
-                            
+                            OperationView(section: OperationTopicView(topic: "Addition", equation: "2 + 4 = 6", level: additionLevel, image: Image(systemName: "plus.square.fill"), color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1))))
                         }
-            
                         
-    //                    Button(action: {
-    //                        selectedTarget = .multiply
-    //                    }, label: {
-    //                        OperationView(section: OperationTopicView(topic: "Multiplication", equation: "2 x 4 = 8", level: 1, image: Image(systemName: "multiply.square.fill"), color: Color(#colorLiteral(red: 0.9473446012, green: 0.723336637, blue: 0.1284327209, alpha: 1))))
-    //                    })
-    //
-    //                    Button(action: {
-    //                        selectedTarget = .divide
-    //                    }, label: {
-    //                        OperationView(section: OperationTopicView(topic: "Division", equation: "10 / 2 = 5", level: 1, image: Image(systemName: "divide.square.fill"), color: Color(#colorLiteral(red: 0.006537661422, green: 0.4778559804, blue: 0.9984870553, alpha: 1))))
-    //                    })
+                        NavigationLink(destination: SubtractionView()) {
+                            OperationView(section: OperationTopicView(topic: "Subtraction", equation: "9 - 5 = 4", level: subtractionLevel, image: Image(systemName: "minus.square.fill"), color: Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))))
+                        }
+                        
+                        
+                        //                    Button(action: {
+                        //                        selectedTarget = .multiply
+                        //                    }, label: {
+                        //                        OperationView(section: OperationTopicView(topic: "Multiplication", equation: "2 x 4 = 8", level: 1, image: Image(systemName: "multiply.square.fill"), color: Color(#colorLiteral(red: 0.9473446012, green: 0.723336637, blue: 0.1284327209, alpha: 1))))
+                        //                    })
+                        //
+                        //                    Button(action: {
+                        //                        selectedTarget = .divide
+                        //                    }, label: {
+                        //                        OperationView(section: OperationTopicView(topic: "Division", equation: "10 / 2 = 5", level: 1, image: Image(systemName: "divide.square.fill"), color: Color(#colorLiteral(red: 0.006537661422, green: 0.4778559804, blue: 0.9984870553, alpha: 1))))
+                        //                    })
                         
                     }
                     
@@ -115,9 +114,9 @@ struct MathSwiftUIView: View {
                     MultiplicationView()
                 case .divide:
                     GaugeView()
-    //                DivisionView()
+                //                DivisionView()
                 }
-        }
+            }
         }
     }
 }

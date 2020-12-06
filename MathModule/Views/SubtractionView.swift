@@ -75,8 +75,8 @@ struct SubtractionView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            VStack(spacing: 30.0) {
-                VStack(spacing: 20) {
+            VStack(spacing: 20.0) {
+                VStack(spacing: 10) {
                     HStack {
                         Image(systemName: "minus")
                             .font(.system(size: 40, weight: .black))
@@ -137,55 +137,47 @@ struct SubtractionView: View {
                             .background(Circle().fill(Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1))))
                     }
                 }
-                
-                
-                
-                Text("Score: \(score)")
-                    .font(.system(size: 60, weight: .black))
-                    .foregroundColor(reset ? .white : .red)
             }
             .padding(30)
             .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
-            .offset(y: 160)
+            .offset(y: 170)
             .background(Color(.darkGray))
-            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-            
             
             ZStack {
                 VStack {
                     HStack {
-                        VStack {
-                            Image(systemName: "minus.square.fill")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .padding(.horizontal)
-                            
-                            HStack(spacing: 5.0) {
-                                Text("Level")
-                                    .font(.subheadline)
-                                    .fontWeight(.black)
-                                
-                                Text("\(subtractionLevel)")
-                                    .font(.title3)
-                                    .fontWeight(.black)
-                                    .onAppear {
-                                        numberModelVM.subtractionLevel = subtractionLevel
-                                    }
-                            }
-                        }
-                        .padding(.top, 30)
-                        
-                        VStack(spacing: 10.0) {
+                        VStack(alignment: .center, spacing: 5.0) {
                             Text("Subtraction")
                                 .font(.system(size: 24, weight: .black))
-                                .frame(width: 200, alignment: .leading)
                             ProgressBar(value: $progressValue, progressColor: Color(#colorLiteral(red: 0.006537661422, green: 0.4778559804, blue: 0.9984870553, alpha: 1)))
                                 .frame(height: 20)
+                            
+                            HStack {
+                                Text("Score: \(score)")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(reset ? .white : .red)
+                                
+                                Spacer()
+                                
+                                HStack(spacing: 5.0) {
+                                    Text("Level")
+                                    
+                                    Text("\(subtractionLevel)")
+                                        .onAppear {
+                                            numberModelVM.subtractionLevel = subtractionLevel
+                                        }
+                                }
+                                .font(.system(size: 24, weight: .bold))
+                            }
+                            
                         }
+                        .padding(.top, 10)
                     }
                     .foregroundColor(.white)
-                    .padding(44)
-                    .frame(maxWidth: .infinity, maxHeight: 150)
+                    .padding(.top, 90)
+                    .padding(.bottom, 40)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity, maxHeight: 180)
                     .background(Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)))
                     .shadow(color: Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
                     
