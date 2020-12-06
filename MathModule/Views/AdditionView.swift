@@ -20,7 +20,7 @@ struct AdditionView: View {
         if numberModelVM.correctAdditionAnswer == Int(numberModelVM.userAnswer) {
             score += 1
             
-            withAnimation(Animation.default.speed(0.55)){
+            withAnimation(Animation.default.speed(0.55)) {
                 if progressValue < 0.91 {
                     progressValue += 0.1
                 } else {
@@ -67,8 +67,8 @@ struct AdditionView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            VStack(spacing: 30.0) {
-                VStack(spacing: 20) {
+            VStack(spacing: 20.0) {
+                VStack(spacing: 10) {
                     HStack {
                         Image(systemName: "plus")
                             .font(.system(size: 40, weight: .black))
@@ -106,8 +106,8 @@ struct AdditionView: View {
                                 .padding([.leading, .trailing], 4)
                                 .cornerRadius(16)
                                 .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
-//                                .padding(.horizontal, 50)
-//                                .padding(.trailing, 30)
+                                //                                .padding(.horizontal, 50)
+                                //                                .padding(.trailing, 30)
                                 .multilineTextAlignment(TextAlignment.trailing)
                         }
                         .foregroundColor(.white)
@@ -129,58 +129,50 @@ struct AdditionView: View {
                             .background(Circle().fill(Color.green))
                     }
                 }
-                
-                
-                
-                Text("Score: \(score)")
-                    .font(.system(size: 60, weight: .black))
-                    .foregroundColor(reset ? .white : .red)
             }
             .padding(30)
             .frame(maxWidth: .infinity, maxHeight: .infinity , alignment: .top)
-            .offset(y: 160)
+            .offset(y: 170)
             .background(Color(.darkGray))
-            .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             
             
             ZStack {
                 VStack {
                     HStack {
-                        VStack {
-                            Image(systemName: "plus.square.fill")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .padding(.horizontal)
-                            
-                            HStack(spacing: 5.0) {
-                                Text("Level")
-                                    .font(.subheadline)
-                                    .fontWeight(.black)
-                                
-                                Text("\(additionLevel)")
-                                    .font(.title3)
-                                    .fontWeight(.black)
-                                    .onAppear {
-                                        numberModelVM.additionLevel = additionLevel
-                                    }
-                            }
-                        }
-                        .padding(.top, 30)
-                        
-                        VStack(spacing: 10.0) {
+                        VStack(alignment: .center, spacing: 5.0) {
                             Text("Addition")
                                 .font(.system(size: 24, weight: .black))
-                                .frame(width: 200, alignment: .leading)
+//                                .frame(width: 200, alignment: .leading)
                             ProgressBar(value: $progressValue, progressColor: Color(#colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)))
                                 .frame(height: 20)
-                            //                            ProgressView("Downloading", value: progressValue, total: 1)
+                            
+                            HStack {
+                                Text("Score: \(score)")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(reset ? .white : .red)
+                                
+                                Spacer()
+                                
+                                HStack(spacing: 5.0) {
+                                    Text("Level")
+                                    
+                                    Text("\(additionLevel)")
+                                        .onAppear {
+                                            numberModelVM.additionLevel = additionLevel
+                                        }
+                                }
+                                .font(.system(size: 24, weight: .bold))
+                            }
                         }
+                        .padding(.top, 10)
                     }
                     .foregroundColor(.white)
-                    .padding(44)
-                    .frame(maxWidth: .infinity, maxHeight: 150)
+                    .padding(.top, 90)
+                    .padding(.bottom, 40)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity, maxHeight: 180)
                     .background(Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)))
-                    .shadow(color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
+//                    .shadow(color: Color(#colorLiteral(red: 0, green: 0.746296227, blue: 0, alpha: 1)).opacity(0.4), radius: 10, x: 0, y: 10)
                     
                 }
                 
@@ -195,7 +187,8 @@ struct AdditionView: View {
 
 struct AdditionView_Previews: PreviewProvider {
     static var previews: some View {
-        AdditionView()
+        AdditionView().previewDevice("iPhone 7")
+        AdditionView().previewDevice("iPhone 11 Pro")
     }
 }
 
